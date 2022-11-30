@@ -1,0 +1,172 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./style.css">
+        <title> To do list</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+    </head>
+
+    <style >
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #title {
+            background-color: #f44336;
+            padding: 30px 40px;
+            color: white;
+            text-align: center;}
+        
+        
+        
+
+        ul li {
+            cursor: pointer;
+            position: relative;
+            padding: 12px 8px 12px 40px;
+            background: #eee;
+            font-size: 18px;
+            
+        }
+        ul li:hover {
+            background: #ddd;
+          }
+
+        
+
+
+
+
+
+
+    </style>
+
+
+    <body>
+        <h3 id="title" style="color:white; "> My To Do List</h3>
+        <input type="texte" placeholder="Title..." id="input">
+        <button onclick="Ajouter()">Add</button>
+
+        <ul id="ajout">
+            <li>Hit the gym </li>
+            <li>Meet George</li>
+            <li>Buy eggs</li>
+            <li>Read a book</li>
+            <li>Organize office</li>
+            <li>Hit the lm</li>
+            
+          </ul>
+
+
+    </body>
+
+    <script>
+
+        //add button
+        function Ajouter() {
+            var li = document.createElement("li");
+            var input = document.getElementById("input").value;
+            var texte = document.createTextNode(input);
+            li.appendChild(texte);
+            document.getElementById("ajout").appendChild(li);
+
+
+            
+            var list = document.getElementsByTagName("li");
+            var btn = document.createElement("button");
+            btn.className="close";
+            
+            var icone = document.createTextNode("X");
+
+            for (var i = 0; i < list.length; i++) {
+                
+                btn.appendChild(icone);
+                list[i].appendChild(btn);
+                
+            }
+
+
+            var closebtn = document.getElementsByClassName("close");
+            var i;
+
+            /* Loop through the elements, and hide the parent, when clicked on */
+            for (i = 0; i < closebtn.length; i++) {
+            closebtn[i].addEventListener("click", function() {
+                this.parentElement.style.display = 'none';
+            });
+            }
+
+
+
+
+           
+
+            
+        }
+
+        //delete button
+      
+        
+        var list = document.getElementsByTagName("li");
+        for (var i = 0; i < list.length; i++) {
+            
+        var btn = document.createElement("button");
+        btn.className="close";
+        var icone = document.createTextNode("X");
+            btn.appendChild(icone);
+            list[i].appendChild(btn);
+            
+        }
+
+
+        //delete
+        var closebtns = document.getElementsByClassName("close");
+        var i;
+
+        /* Loop through the elements, and hide the parent, when clicked on */
+        for (i = 0; i < closebtns.length; i++) {
+        closebtns[i].addEventListener("click", function() {
+            this.parentElement.style.display = 'none';
+            
+        });
+        }
+
+        //checked
+        /*var check = document.getElementsByTagName("ul");
+            check.addEventListener("click", function() {
+              this.parentElement.style.textDecoration = 'line-through';
+              
+            });*/
+
+            
+            
+            var check = document.querySelector("ajout").onclick = function() {  
+                fun()  
+                }; 
+            function fun() {  
+                document.getElementsByTagName("ul")[0].textDecorationLine = "line-through";}
+            
+          
+
+
+        
+
+            
+                        
+        
+
+
+
+
+        
+
+        
+        
+        
+    </script>
